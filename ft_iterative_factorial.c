@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnequ.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: romendy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/29 00:02:24 by romendy           #+#    #+#             */
-/*   Updated: 2018/12/05 05:19:16 by romendy          ###   ########.fr       */
+/*   Created: 2018/11/06 16:19:29 by romendy           #+#    #+#             */
+/*   Updated: 2018/12/12 00:04:17 by romendy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strnequ(char const *s1, char const *s2, size_t n)
+int	ft_iterative_factorial(int nb)
 {
-	if (s1 != NULL && s2 != NULL)
-		return (ft_strncmp(s1, s2, n) == 0);
-	return (0);
+	int	i;
+
+	i = nb - 1;
+	if (nb == 0 || nb == 1)
+		return (1);
+	if (nb < 0 || nb > 12)
+		return (0);
+	else
+	{
+		while (i > 1)
+		{
+			nb = nb * i;
+			i--;
+		}
+		return (nb);
+	}
 }

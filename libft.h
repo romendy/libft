@@ -6,7 +6,7 @@
 /*   By: romendy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 02:47:50 by romendy           #+#    #+#             */
-/*   Updated: 2018/12/05 03:00:20 by romendy          ###   ########.fr       */
+/*   Updated: 2018/12/12 00:10:24 by romendy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,16 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+void				ft_lstadd(t_list **lst, t_list *new);
+void				ft_lstdel(t_list **lst, void (*del)(void *, size_t));
+void				ft_lstdelone(t_list **lst, void (*del)(void *, size_t));
+void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+t_list				*ft_lstnew(const void *content, size_t content_size);
+void				ft_div_mod(int a, int b, int *div, int *mod);
+void				ft_ft(int *nbr);
+void				ft_is_negative(int n);
+int					ft_iterative_factorial(int nb);
+void				ft_swap(int *a, int *b);
 
 #endif

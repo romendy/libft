@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnequ.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: romendy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/29 00:02:24 by romendy           #+#    #+#             */
-/*   Updated: 2018/12/05 05:19:16 by romendy          ###   ########.fr       */
+/*   Created: 2018/12/06 10:05:06 by romendy           #+#    #+#             */
+/*   Updated: 2018/12/06 10:25:23 by romendy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strnequ(char const *s1, char const *s2, size_t n)
+t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	if (s1 != NULL && s2 != NULL)
-		return (ft_strncmp(s1, s2, n) == 0);
-	return (0);
+	t_list	*new;
+	t_list	*link;
+	t_list	*first;
+
+	if (!f)
+		return (NULL);
+	new = (*f)(lst);
+	first = ft_lstnew(new->content, new->content_size);
+	link = first;
+	lst = lst->next;
+	while (lst)
+	{
+		new = (*f)(lst);
+		link->next = ft_lstnew(new->content, new->content_size);
+		link = link->next;
+		lst = lst->next;
+	}
+	return (first);
 }

@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnequ.c                                       :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: romendy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/29 00:02:24 by romendy           #+#    #+#             */
-/*   Updated: 2018/12/05 05:19:16 by romendy          ###   ########.fr       */
+/*   Created: 2018/11/05 22:12:47 by romendy           #+#    #+#             */
+/*   Updated: 2018/12/12 00:05:23 by romendy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strnequ(char const *s1, char const *s2, size_t n)
+void	ft_swap(int *a, int *b)
 {
-	if (s1 != NULL && s2 != NULL)
-		return (ft_strncmp(s1, s2, n) == 0);
-	return (0);
+	int c;
+
+	c = *a;
+	*a = *b;
+	*b = c;
 }
